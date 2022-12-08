@@ -7,3 +7,12 @@ async function getAll() {
 
   return result;
 }
+
+async function getOne(id) { 
+  const result = await fetch(url + '/' + id)
+  .then((result) => result.json())
+  .catch((e) => e);
+  renderBookInformation(result)
+
+  return result;
+}
