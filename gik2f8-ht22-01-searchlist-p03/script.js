@@ -37,10 +37,10 @@ function renderBookInformation(FoundBookId, x, y){
   p-10  bg-pink-300 border-black-10 m-10 top-[${
     y + 10
   }px] left-[${x + 10}px]">
-      <h2> Author ${FoundBookId.author}</h2>    
-      <p class="m-2 text-black font-semibold"> Title: ${FoundBookId.title}</p>
-      <p class="m-2 text-black font-semibold"> Pages: ${FoundBookId.pages}</p>
-      <p class="m-2 text-black font-semibold"> Release date: ${FoundBookId.releaseDate}</p>
+      <h2 class="font-bold text-2xl"> ${FoundBookId.author}</h2>    
+      <p class="m-2 text-black text-1xl font-semibold"> Title: ${FoundBookId.title}</p>
+      <p class="m-2 text-black text-1xl font-semibold"> Pages: ${FoundBookId.pages}</p>
+      <p class="m-2 text-black text-1xl font-semibold"> Release date: ${FoundBookId.releaseDate}</p>
       <img src="${FoundBookId.coverImage}" alt="Image is missing" width="200px" height="220px">
         
 </div>`
@@ -59,11 +59,13 @@ function renderBookList(bookList) {
   for (let bookId of document.getElementsByClassName("book-list__item")){
     bookId.addEventListener("mouseenter", (e) => {
       
-    getOne(bookId.getAttribute("ID"))
+    getOne(bookId.getAttribute("id"))
       
     })
-    bookId.addEventListener("mouseleave", (e) => {
-      bookInfo && bookInfo.remove();
+
+
+  bookId.addEventListener("mouseleave", () => {
+  bookInfo && bookInfo.remove();
       
     })
   }
